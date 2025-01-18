@@ -110,10 +110,10 @@
                 <div class="col-lg-4">
                     <h5 class="mb-3">Kontak Kami</h5>
                     <div class="contact-info">
-                        <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> Jl. Raya Bogor KM 32, Cimanggis, Depok</p>
-                        <p class="mb-2"><i class="bi bi-telephone me-2"></i> (021) 1234567</p>
-                        <p class="mb-2"><i class="bi bi-envelope me-2"></i> info@bpmsph.go.id</p>
-                        <p class="mb-3"><i class="bi bi-clock me-2"></i> Senin - Kamis: 08:00 - 16:00 <br> Jumat: 08:00 - 16:30</p>
+                        <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> Jalan Pemuda No 29A Kecamatan Tanah Sareal Kota Bogor, Jawa Barat</p>
+                        <p class="mb-2"><i class="bi bi-telephone me-2"></i> +62-251-8377111</p>
+                        <p class="mb-2"><i class="bi bi-envelope me-2"></i> bpmsph@pertanian.go.id</p>
+                        <p class="mb-3"><i class="bi bi-clock me-2"></i> Senin - Kamis: 07:30 - 16:00 <br> Jumat: 07:30 - 16:30</p>
                     </div>
                 </div>
             </div>

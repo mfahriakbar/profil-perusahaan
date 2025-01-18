@@ -38,9 +38,6 @@
                     <a class="nav-link {{ request()->is('admin') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                         <i class="fas fa-tachometer-alt me-2"></i> Dashboard
                     </a>
-                    <a class="nav-link {{ request()->is('admin/profile*') ? 'active' : '' }}" href="{{ route('admin.profile.index') }}">
-                        <i class="fas fa-building me-2"></i> Profile
-                    </a>
                     <a class="nav-link {{ request()->is('admin/news*') ? 'active' : '' }}" href="{{ route('admin.news.index') }}">
                         <i class="fas fa-newspaper me-2"></i> Berita
                     </a>

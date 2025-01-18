@@ -4,72 +4,46 @@
 <div class="container-fluid py-4">
     <!-- Header -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-            <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
-        </a>
+        <h1 class="h3 mb-0 text-gray-800 font-weight-bold">Dashboar</h1>
+        <div class="d-none d-sm-inline-block">
+            <span class="mr-2">
+                <i class="fas fa-calendar fa-sm text-gray-600"></i> {{ date('F d, Y') }}
+            </span>
+        </div>
     </div>
 
     <!-- Stats Cards -->
     <div class="row">
+        <!-- News Stats Card -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card stat-card">
+            <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Total News</div>
-                            <div class="stat-value">{{ $newsCount }}</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Total News Articles</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $newsCount }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-newspaper fa-2x text-white-300"></i>
+                            <i class="fas fa-newspaper fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Gallery Stats Card -->
         <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card stat-card" style="background: linear-gradient(45deg, #00b09b, #96c93d);">
+            <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Total Gallery</div>
-                            <div class="stat-value">{{ $galleryCount }}</div>
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Total Gallery Items</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $galleryCount }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-images fa-2x text-white-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card stat-card" style="background: linear-gradient(45deg, #ff5f6d, #ffc371);">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Total Views</div>
-                            <div class="stat-value">{{ number_format($totalViews ?? 0) }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-eye fa-2x text-white-300"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card stat-card" style="background: linear-gradient(45deg, #614385, #516395);">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-uppercase mb-1">Active Users</div>
-                            <div class="stat-value">{{ number_format($activeUsers ?? 0) }}</div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-users fa-2x text-white-300"></i>
+                            <i class="fas fa-images fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
@@ -79,50 +53,61 @@
 
     <!-- Charts Row -->
     <div class="row">
+        <!-- Content Trend Chart -->
         <div class="col-xl-8 col-lg-7">
-            <div class="card mb-4">
+            <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Monthly Views</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Content Overview</h6>
                 </div>
                 <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="viewsChart"></canvas>
+                    <div class="chart-area">
+                        <canvas id="contentTrendChart" style="height: 320px;"></canvas>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Content Distribution Chart -->
         <div class="col-xl-4 col-lg-5">
-            <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Content Distribution</h6>
                 </div>
                 <div class="card-body">
-                    <div class="chart-container">
-                        <canvas id="distributionChart"></canvas>
+                    <div class="chart-pie pt-4">
+                        <canvas id="contentDistributionChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-center small">
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-primary"></i> News
+                        </span>
+                        <span class="mr-2">
+                            <i class="fas fa-circle text-success"></i> Gallery
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Latest News -->
+    <!-- Latest News Table -->
     <div class="row">
         <div class="col-12">
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Latest News</h6>
+                    <a href="{{ route('admin.news.create') }}" class="btn btn-sm btn-primary shadow-sm">
+                        <i class="fas fa-plus fa-sm text-white-50"></i> Add News
+                    </a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-light">
                                 <tr>
                                     <th>Title</th>
-                                    <th>Date</th>
-                                    <th>Views</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -130,16 +115,20 @@
                                 <tr>
                                     <td>{{ $news->title }}</td>
                                     <td>{{ $news->created_at->format('M d, Y') }}</td>
-                                    <td>{{ number_format($news->views ?? 0) }}</td>
                                     <td>
-                                        <span class="badge badge-{{ $news->status === 'published' ? 'success' : 'warning' }}">
-                                            {{ ucfirst($news->status) }}
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('admin.news.edit', $news->id) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('admin.news.edit', $news->id) }}" 
+                                           class="btn btn-sm btn-info">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        <form action="{{ route('admin.news.destroy', $news->id) }}" 
+                                              method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger" 
+                                                    onclick="return confirm('Are you sure you want to delete this item?')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -154,57 +143,80 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    // Monthly Views Chart
-    const viewsCtx = document.getElementById('viewsChart').getContext('2d');
-    new Chart(viewsCtx, {
-        type: 'line',
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            datasets: [{
-                label: 'Monthly Views',
-                data: [65, 59, 80, 81, 56, 55, 40, 45, 60, 75, 85, 90],
-                fill: true,
-                borderColor: '#4e73df',
-                backgroundColor: 'rgba(78, 115, 223, 0.05)',
-                tension: 0.3
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
+        const monthlyNewsData = @json(array_values($monthlyNewsData));
+        const monthlyGalleryData = @json(array_values($monthlyGalleryData));
+        
+        const ctx = document.getElementById('contentTrendChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [
+                    {
+                        label: 'News Articles',
+                        data: monthlyNewsData,
+                        borderColor: '#4e73df',
+                        backgroundColor: 'rgba(78, 115, 223, 0.05)',
+                        tension: 0.3,
+                        fill: true
+                    },
+                    {
+                        label: 'Gallery Items',
+                        data: monthlyGalleryData,
+                        borderColor: '#1cc88a',
+                        backgroundColor: 'rgba(28, 200, 138, 0.05)',
+                        tension: 0.3,
+                        fill: true
+                    }
+                ]
             },
-            scales: {
-                y: {
-                    beginAtZero: true
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
                 }
             }
-        }
-    });
-
-    // Content Distribution Chart
-    const distributionCtx = document.getElementById('distributionChart').getContext('2d');
-    new Chart(distributionCtx, {
-        type: 'doughnut',
-        data: {
-            labels: ['News', 'Gallery'],
-            datasets: [{
-                data: [{{ $newsCount }}, {{ $galleryCount }}],
-                backgroundColor: ['#4e73df', '#1cc88a'],
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom'
+        });
+    
+        // Content Distribution Chart
+        const distributionCtx = document.getElementById('contentDistributionChart').getContext('2d');
+        new Chart(distributionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['News Articles', 'Gallery Items'],
+                datasets: [{
+                    data: [{{ $newsCount }}, {{ $galleryCount }}],
+                    backgroundColor: ['#4e73df', '#1cc88a'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                cutout: '70%',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
                 }
             }
-        }
+        });
     });
-});
-</script>
+    </script>    
 @endsection

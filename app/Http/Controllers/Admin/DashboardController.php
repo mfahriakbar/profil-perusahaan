@@ -14,6 +14,33 @@ class DashboardController extends Controller
         $galleryCount = Gallery::count();
         $latestNews = News::latest()->take(5)->get();
 
-        return view('admin.dashboard', compact('newsCount', 'galleryCount', 'latestNews'));
+        // Get monthly data for charts
+        $monthlyNewsData = News::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('month')
+            ->pluck('count', 'month')
+            ->toArray();
+
+        $monthlyGalleryData = Gallery::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('month')
+            ->pluck('count', 'month')
+            ->toArray();
+
+        // Fill in missing months with zeros
+        for ($i = 1; $i <= 12; $i++) {
+            if (!isset($monthlyNewsData[$i])) $monthlyNewsData[$i] = 0;
+            if (!isset($monthlyGalleryData[$i])) $monthlyGalleryData[$i] = 0;
+        }
+        ksort($monthlyNewsData);
+        ksort($monthlyGalleryData);
+
+        return view('admin.dashboard', compact(
+            'newsCount',
+            'galleryCount',
+            'latestNews',
+            'monthlyNewsData',
+            'monthlyGalleryData'
+        ));
     }
 }

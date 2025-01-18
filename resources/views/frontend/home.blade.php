@@ -10,7 +10,7 @@
             <img src="{{ asset('assets/frontend/images/kantor.jpg') }}" class="d-block w-100" alt="Slide 1">
             <div class="carousel-caption">
                 <h1>Selamat Datang di BPMSPH</h1>
-                <p class="lead">Balai Pengujian Mutu dan Sertifikasi Produk Hewan</p>
+                <h4>Balai Pengujian Mutu dan Sertifikasi Produk Hewan</h4>
                 <a href="{{ url('/about') }}" class="btn btn-light btn-lg">Pelajari Lebih Lanjut</a>
             </div>
         </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('assets/frontend/images/slide3.jpg') }}" class="d-block w-100" alt="Slide 3">
+            <img src="{{ asset('assets/frontend/images/gedung.jpg') }}" class="d-block w-100" alt="Slide 3">
             <div class="carousel-caption">
                 <h1>Kualitas Terjamin</h1>
                 <p class="lead">Didukung oleh Tim Ahli dan Peralatan Modern</p>
@@ -83,7 +83,10 @@
             @foreach($news as $item)
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img src="{{ asset('uploads/images/'.$item->image) }}" class="card-img-top" alt="{{ $item->title }}">
+                    <img 
+                        src="{{ $item->image ? asset('uploads/images/'.$item->image) : asset('uploads/images/default.png') }}" 
+                        class="card-img-top" 
+                        alt="{{ $item->title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->title }}</h5>
                         <p class="card-text">{{ Str::limit($item->content, 100) }}</p>

@@ -16,10 +16,7 @@ class HomeController extends Controller
             // Get latest news for homepage
             $news = News::latest()->take(3)->get();
 
-            // Get company profile
-            $profile = Profile::first();
-
-            return view('frontend.home', compact('news', 'profile'));
+            return view('frontend.home', compact('news'));
         } catch (\Exception $e) {
             // Tampilkan error
             dd($e->getMessage());

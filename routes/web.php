@@ -7,7 +7,6 @@ use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 
@@ -29,10 +28,6 @@ Route::auth(['register' => false]); // Disable registration
 // Admin Routes
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Profile Routes
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::put('/profile/{profile}', [ProfileController::class, 'update'])->name('profile.update');
 
     // News Routes
     Route::resource('news', AdminNewsController::class);

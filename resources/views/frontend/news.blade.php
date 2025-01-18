@@ -10,7 +10,10 @@
         @forelse($news as $item)
         <div class="col-md-4 mb-4">
             <div class="card h-100">
-                <img src="{{ asset('uploads/images/'.$item->image) }}" class="card-img-top" alt="{{ $item->title }}">
+                <img 
+                    src="{{ $item->image ? asset('uploads/images/'.$item->image) : asset('uploads/images/default.png') }}" 
+                    class="card-img-top" 
+                    alt="{{ $item->title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->title }}</h5>
                     <p class="text-muted">{{ $item->created_at->format('d F Y') }}</p>
