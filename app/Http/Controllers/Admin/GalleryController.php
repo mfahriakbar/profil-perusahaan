@@ -85,7 +85,7 @@ class GalleryController extends Controller
             $validated['image'] = $filename;
         }
 
-        // Set is_active value
+        // Aktif Atau Tidak Aktif
         $validated['is_active'] = $request->has('is_active') ? true : false;
 
         // Update gallery
@@ -100,7 +100,7 @@ class GalleryController extends Controller
     {
         $gallery = Gallery::findOrFail($id);
 
-        // Delete image file
+        // Hapus file gambar
         if ($gallery->image) {
             $imagePath = public_path('uploads/gallery/' . $gallery->image);
             if (file_exists($imagePath)) {
@@ -108,7 +108,7 @@ class GalleryController extends Controller
             }
         }
 
-        // Delete gallery record
+        // Hapus catatan galeri
         $gallery->delete();
 
         return redirect()

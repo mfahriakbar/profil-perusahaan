@@ -5,7 +5,7 @@
 <div class="hero-section bg-primary text-white py-4">
     <div class="container">
         <h1>Tentang BPMSPH</h1>
-        <p class="lead">Balai Pengujian Mutu dan Sertifikasi Prdouk Hewan</p>
+        <p class="lead">Balai Pengujian Mutu dan Sertifikasi Produk Hewan</p>
     </div>
 </div>
 
@@ -25,8 +25,9 @@
                 <div class="card-body">
                     <h3 class="card-title mb-4">Sejarah Singkat</h3>
                     <div class="card-text">
-                        <p>Balai Pengujian Mutu Produk Perternakan terletak di jalan Pemuda No 29A Bogor 16161, berdiri diatas luas lahan ± 8000 m2 yang lokasinya berdampingan dengan bekas rumah potong hewan kota Bogor di sebelah selatan dan Dinas Pendapatan Daerah Kota Bogor disebelah utaranya.</p>
+                        <p>Balai Pengujian Mutu Produk Perternakan terletak di jalan Pemuda No 29A Bogor 16161, berdiri diatas luas lahan ± 8000 m2.</p>
                         <p>Perjalanan institusi ini dimulai dengan terbitnya SK Mentri Pertanian No.466/Kpts/OT.210/6/1994 pada 9 Juni 1994 sebagai Loka Pengujian Mutu Produk Perternakan (LPMPP).</p>
+                        <p>Balai Pengujian Mutu dan Sertifikasi Produk Hewan (BPMSPH) berfokus pada pengujian kualitas dan sertifikasi produk hewan untuk memastikan bahwa produk yang dihasilkan memenuhi standar kesehatan, keamanan, dan mutu yang ditetapkan.</p>
                     </div>
                 </div>
             </div>

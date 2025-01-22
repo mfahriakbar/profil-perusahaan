@@ -14,7 +14,7 @@ class DashboardController extends Controller
         $galleryCount = Gallery::count();
         $latestNews = News::latest()->take(5)->get();
 
-        // Get monthly data for charts
+        // Dapatkan data bulanan untuk grafik
         $monthlyNewsData = News::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
             ->whereYear('created_at', date('Y'))
             ->groupBy('month')
@@ -27,7 +27,7 @@ class DashboardController extends Controller
             ->pluck('count', 'month')
             ->toArray();
 
-        // Fill in missing months with zeros
+        // Isi bulan kedepan yang tidak ada data dengan angka nol
         for ($i = 1; $i <= 12; $i++) {
             if (!isset($monthlyNewsData[$i])) $monthlyNewsData[$i] = 0;
             if (!isset($monthlyGalleryData[$i])) $monthlyGalleryData[$i] = 0;

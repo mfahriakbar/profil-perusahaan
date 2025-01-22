@@ -67,7 +67,7 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-3">
+    <footer class="bg-dark text-white py-3 mt-auto">
         <div class="container">
             <div class="row g-4">
                 <!-- Main Info -->
@@ -75,49 +75,65 @@
                     <img src="{{ asset('assets/frontend/images/logo smi.png') }}" alt="BPMSPH Logo" height="60" class="mb-3">
                     <p class="mb-3">Balai Pengujian Mutu dan Sertifikasi Produk Hewan - Institusi terpercaya untuk pengujian dan sertifikasi produk hewan di Indonesia.</p>
                 </div>
-    
-                <!-- Quick Links -->
+
+                <!-- View Counter -->
                 <div class="col-lg-2">
-                    <h5 class="mb-3">Link Cepat</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li class="mb-2"><a href="{{ url('/about') }}" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-info-circle me-2"></i>Tentang Kami</a></li>
-                        <li class="mb-2"><a href="{{ url('/certification') }}" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-award me-2"></i>Sertifikasi</a></li>
-                        <li class="mb-2"><a href="{{ url('/news') }}" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-newspaper me-2"></i>Berita</a></li>
-                        <li class="mb-2"><a href="{{ url('/gallery') }}" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-images me-2"></i>Galeri</a></li>
-                    </ul>
+                    <h5 class="mb-3">Statistik Pengunjung</h5>
+                    <div class="view-counter">
+                        <p class="mb-2">
+                            <i class="bi bi-eye me-2"></i>
+                            Total Kunjungan: {{ number_format($totalViews) }}
+                        </p>
+                        <p class="mb-2">
+                            <i class="bi bi-calendar-check me-2"></i>
+                            Hari Ini: {{ number_format($todayViews) }}
+                        </p>
+                        <p class="mb-2">
+                            <i class="bi bi-graph-up me-2"></i>
+                            Bulan Ini: {{ number_format($monthViews) }}
+                        </p>
+                    </div>
                 </div>
-    
+
                 <!-- Social Media -->
                 <div class="col-lg-2">
                     <h5 class="mb-3">Sosial Media</h5>
                     <ul class="list-unstyled footer-links">
-                        <li class="mb-3"><a href="https://web.facebook.com/bpmsph.ditjenpkh.5" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-facebook me-2"></i>Facebook</a></li>
-                        <li class="mb-3"><a href="https://www.instagram.com/bpmsph_ditjenpkh/" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-instagram me-2"></i>Instagram</a></li>
-                        <li class="mb-3"><a href="https://twitter.com/BPMSPH" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-twitter-x me-2"></i>Twitter</a></li>
-                        <li class="mb-3"><a href="https://www.youtube.com/@bpmsphbogorkementan231" class="text-white text-decoration-none hover-underline">
-                            <i class="bi bi-youtube me-2"></i>Youtube</a></li>
+                        <li class="mb-3">
+                            <a href="https://web.facebook.com/bpmsph.ditjenpkh.5" class="text-white text-decoration-none hover-underline">
+                                <i class="bi bi-facebook me-2"></i>Facebook
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="https://www.instagram.com/bpmsph_ditjenpkh/" class="text-white text-decoration-none hover-underline">
+                                <i class="bi bi-instagram me-2"></i>Instagram
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="https://twitter.com/BPMSPH" class="text-white text-decoration-none hover-underline">
+                                <i class="bi bi-twitter-x me-2"></i>Twitter
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="https://www.youtube.com/@bpmsphbogorkementan231" class="text-white text-decoration-none hover-underline">
+                                <i class="bi bi-youtube me-2"></i>Youtube
+                            </a>
+                        </li>
                     </ul>
                 </div>
-    
+
                 <!-- Contact Info -->
                 <div class="col-lg-4">
                     <h5 class="mb-3">Kontak Kami</h5>
                     <div class="contact-info">
-                        <p class="mb-2"><i class="bi bi-geo-alt me-2"></i> Jalan Pemuda No 29A Kecamatan Tanah Sareal Kota Bogor, Jawa Barat</p>
-                        <p class="mb-2"><i class="bi bi-telephone me-2"></i> +62-251-8377111</p>
-                        <p class="mb-2"><i class="bi bi-envelope me-2"></i> bpmsph@pertanian.go.id</p>
-                        <p class="mb-3"><i class="bi bi-clock me-2"></i> Senin - Kamis: 07:30 - 16:00 <br> Jumat: 07:30 - 16:30</p>
+                        <p class="mb-2"><i class="bi bi-geo-alt me-2"></i>Jalan Pemuda No 29A Kecamatan Tanah Sareal Kota Bogor, Jawa Barat</p>
+                        <p class="mb-2"><i class="bi bi-telephone me-2"></i>+62-251-8377111</p>
+                        <p class="mb-2"><i class="bi bi-envelope me-2"></i>bpmsph@pertanian.go.id</p>
+                        <p class="mb-3"><i class="bi bi-clock me-2"></i>Senin - Kamis: 07:30 - 16:00 <br> Jumat: 07:30 - 16:30</p>
                     </div>
                 </div>
             </div>
-    
+
             <!-- Bottom Bar -->
             <div class="row mt-4 pt-3 border-top">
                 <div class="col-md-6">

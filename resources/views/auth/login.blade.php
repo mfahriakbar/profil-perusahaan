@@ -11,20 +11,36 @@
 <body>
     <div class="container">
         <div class="login-box">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white text-center py-3">
-                    <h4 class="mb-0">Login Admin BPMSPH</h4>
+            <div class="card">
+                <div class="card-header text-white text-center">
+                    <h4 class="mb-0">
+                        <i class="fas fa-user-shield me-2"></i>
+                        Login Admin Panel
+                    </h4>
                 </div>
-                <div class="card-body p-4">
-                    <form method="POST" action="{{ route('login') }}">
+                <!-- Logo Section -->
+                <div class="logo-container">
+                    <a href="{{ url('/') }}" class="logo-link">
+                        <img src="{{ asset('assets/admin/images/logo.webp') }}" alt="BPMSPH Logo" class="mb-2">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
                         @csrf
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Email Address</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                                       id="email" name="email" value="{{ old('email') }}" required autofocus>
+                                <span class="input-group-text">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" 
+                                       class="form-control @error('email') is-invalid @enderror" 
+                                       id="email" 
+                                       name="email" 
+                                       value="{{ old('email') }}" 
+                                       placeholder="Enter your email"
+                                       required 
+                                       autofocus>
                                 @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -34,10 +50,16 @@
                         <div class="mb-4">
                             <label for="password" class="form-label">Password</label>
                             <div class="input-group">
-                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                <input type="password" class="form-control no-right-border @error('password') is-invalid @enderror" 
-                                       id="password" name="password" required>
-                                <span class="input-group-text" onclick="togglePassword()">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" 
+                                       class="form-control @error('password') is-invalid @enderror" 
+                                       id="password" 
+                                       name="password" 
+                                       placeholder="Enter your password"
+                                       required>
+                                <span class="input-group-text password-toggle" onclick="togglePassword()">
                                     <i class="fas fa-eye" id="togglePassword"></i>
                                 </span>
                                 @error('password')
@@ -46,9 +68,12 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="remember" id="remember" 
+                                <input class="form-check-input" 
+                                       type="checkbox" 
+                                       name="remember" 
+                                       id="remember" 
                                        {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">
                                     Remember Me
@@ -56,10 +81,13 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        <button type="submit" class="btn btn-primary w-100 mb-3" id="loginBtn">
+                            <i class="fas fa-sign-in-alt me-2"></i>Sign In
                         </button>
                     </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p class="mb-0">&copy; 2025 Fahri Akbar. All Rights Reserved.</p>
                 </div>
             </div>
         </div>
