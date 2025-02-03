@@ -63,7 +63,45 @@
                     </tbody>
                 </table>
             </div>
-            {{ $galleries->links() }}
+            <!-- Pagination -->
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination pagination-sm">
+                        <!-- Tombol Previous -->
+                        @if ($galleries->onFirstPage())
+                            <li class="page-item disabled">
+                                <span class="page-link">&laquo;</span>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $galleries->previousPageUrl() }}" aria-label="Previous">
+                                    <span>&laquo;</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        <!-- Nomor Halaman -->
+                        @foreach ($galleries->getUrlRange(1, $galleries->lastPage()) as $page => $url)
+                            <li class="page-item {{ $galleries->currentPage() == $page ? 'active' : '' }}">
+                                <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                            </li>
+                        @endforeach
+
+                        <!-- Tombol Next -->
+                        @if ($galleries->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $galleries->nextPageUrl() }}" aria-label="Next">
+                                    <span>&raquo;</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <span class="page-link">&raquo;</span>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
 </div>

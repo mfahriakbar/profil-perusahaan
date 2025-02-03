@@ -30,8 +30,44 @@
         @endforelse
     </div>
 
+    <!-- Pagination -->
     <div class="d-flex justify-content-center mt-4">
-        {{ $news->links() }}
+        <nav aria-label="News pagination">
+            <ul class="pagination pagination-sm">
+                <!-- Tombol Previous -->
+                @if ($news->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link">&laquo;</span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $news->previousPageUrl() }}" aria-label="Previous">
+                            <span>&laquo;</span>
+                        </a>
+                    </li>
+                @endif
+
+                <!-- Nomor Halaman -->
+                @foreach ($news->getUrlRange(1, $news->lastPage()) as $page => $url)
+                    <li class="page-item {{ $news->currentPage() == $page ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                <!-- Tombol Next -->
+                @if ($news->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $news->nextPageUrl() }}" aria-label="Next">
+                            <span>&raquo;</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo;</span>
+                    </li>
+                @endif
+            </ul>
+        </nav>
     </div>
 </div>
 @endsection
