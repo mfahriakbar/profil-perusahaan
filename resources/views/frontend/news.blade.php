@@ -13,6 +13,7 @@
                 <img 
                     src="{{ $item->image ? asset('uploads/images/'.$item->image) : asset('uploads/images/default.png') }}" 
                     class="card-img-top" 
+                    style="height: 200px; object-fit: cover;"
                     alt="{{ $item->title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $item->title }}</h5>

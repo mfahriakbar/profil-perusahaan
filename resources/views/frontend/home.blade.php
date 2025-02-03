@@ -6,6 +6,7 @@
 <!-- Hero Section -->
 <div class="hero-section-home">
     <div class="hero-video-container">
+        <div class="video-overlay"></div>
         <video class="hero-video" autoplay loop muted playsinline>
             <source src="{{ asset('assets/frontend/videos/teknotani.mp4') }}" type="video/mp4">
             Video tidak didukung oleh browser Anda.

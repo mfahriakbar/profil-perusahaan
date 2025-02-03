@@ -2,22 +2,23 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
-use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\Frontend\GalleryController;
-use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [AboutController::class, 'index']);
+Route::get('/about', function () {
+    return view('frontend.about');
+});
 Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/{slug}', [NewsController::class, 'show']);
 Route::get('/gallery', [GalleryController::class, 'index']);
-Route::get('/contact', [ContactController::class, 'index']);
-Route::post('/contact', [ContactController::class, 'store']);
+Route::get('/contact', function () {
+    return view('frontend.contact');
+});
 Route::get('/faq', function () {
     return view('frontend.faq');
 });
@@ -34,4 +35,10 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
 
     // Gallery Routes
     Route::resource('gallery', AdminGalleryController::class);
+});
+
+//testing
+
+Route::get('/layout', function () {
+    return view('frontend.test');
 });

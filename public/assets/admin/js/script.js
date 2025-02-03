@@ -106,7 +106,6 @@ function confirmLogout() {
 
 document.addEventListener("DOMContentLoaded", function () {
     initContentTrendChart();
-    initContentDistributionChart();
 });
 
 function initContentTrendChart() {
@@ -153,31 +152,6 @@ function initContentTrendChart() {
                     grid: {
                         display: false
                     }
-                }
-            }
-        }
-    });
-}
-
-function initContentDistributionChart() {
-    const ctx = document.getElementById('contentDistributionChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['News Articles', 'Gallery Items'],
-            datasets: [{
-                data: [newsCount, galleryCount],
-                backgroundColor: ['#4e73df', '#1cc88a'],
-                hoverBackgroundColor: ['#2e59d9', '#17a673'],
-                hoverBorderColor: "rgba(234, 236, 244, 1)",
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            cutout: '70%',
-            plugins: {
-                legend: {
-                    display: false
                 }
             }
         }

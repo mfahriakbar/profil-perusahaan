@@ -12,7 +12,6 @@ class DashboardController extends Controller
     {
         $newsCount = News::count();
         $galleryCount = Gallery::count();
-        $latestNews = News::latest()->take(5)->get();
 
         // Dapatkan data bulanan untuk grafik
         $monthlyNewsData = News::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
@@ -38,7 +37,6 @@ class DashboardController extends Controller
         return view('admin.dashboard', compact(
             'newsCount',
             'galleryCount',
-            'latestNews',
             'monthlyNewsData',
             'monthlyGalleryData'
         ));

@@ -12,10 +12,10 @@
         </div>
     </div>
 
-    <!-- Stats Cards -->
     <div class="row">
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-primary shadow h-100 py-2">
+        <!-- Stats Cards Column -->
+        <div class="col-xl-4">
+            <div class="card border-left-primary shadow h-30 py-2 mb-4">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -29,9 +29,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-left-success shadow h-100 py-2">
+
+            <div class="card border-left-success shadow h-30 py-2 mb-4">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -46,11 +45,9 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Charts Row -->
-    <div class="row">
-        <div class="col-xl-8 col-lg-7">
+        <!-- Chart Column -->
+        <div class="col-xl-8">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Statistik</h6>
@@ -62,27 +59,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Content Distribution</h6>
-                </div>
-                <div class="card-body">
-                    <div class="chart-pie pt-4">
-                        <canvas id="contentDistributionChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
-    <!-- Passing data dari controller ke JavaScript -->
-    <script>
-        var monthlyNewsData = {!! json_encode(array_values($monthlyNewsData)) !!};
-        var monthlyGalleryData = {!! json_encode(array_values($monthlyGalleryData)) !!};
-        var newsCount = @json($newsCount);
-        var galleryCount = @json($galleryCount);
-    </script>
-    
+<!-- Passing data dari controller ke JavaScript -->
+<script>
+    var monthlyNewsData = {!! json_encode(array_values($monthlyNewsData)) !!};
+    var monthlyGalleryData = {!! json_encode(array_values($monthlyGalleryData)) !!};
+</script>
+
 @endsection
